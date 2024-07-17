@@ -93,9 +93,9 @@ class Cache:
         :param fn:
         :return:
         """
-        if fn:
-            return fn(self._redis.get(key))
         data = self._redis.get(key)
+        if fn:
+            return fn(data)
         return data
 
     def get_int(self: bytes) -> int:
