@@ -31,7 +31,8 @@ def count_calls(method: Callable) -> Callable:
 
 def call_history(method: Callable) -> Callable:
     """
-    A decorator to store the history of inputs and outputs for a particular function.
+    A decorator to store the history of inputs and outputs for a particular
+    function.
     """
     key = method.__qualname__
     input_key = f"{key}:inputs"
@@ -66,7 +67,8 @@ def replay(method: Callable):
     print(f"{method_name} was called {call_count} times:")
 
     for input_args, output in zip(inputs, outputs):
-        print(f"{method_name}(*{input_args.decode('utf-8')}) -> {output.decode('utf-8')}")
+        print(f"{method_name}(*{input_args.decode('utf-8')}) -> "
+              f"{output.decode('utf-8')}")
 
 
 class Cache:
